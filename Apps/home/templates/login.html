@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+	<link rel="stylesheet" href="{% static './css/main.css' %}">
+</head>
+
+<body class="cover" style="background-image: url(./assets/img/loginFont.jpg);">
+    <figure class="full-box">
+        <img src="{% static './assets/img/loginFont.jpg' %}" alt="UserIcon">
+        <figcaption class="text-center text-titles">Nombre de usuario</figcaption>
+    </figure>
+
+    {% block content %}
+
+    <form class="form full-box logInForm " method="post"  autocomplete="off">
+        <p class="text-center text-muted"><i class="zmdi zmdi-account-circle zmdi-hc-5x"></i></p>
+		<p class="text-center text-muted text-uppercase">Inicia sesión con tu cuenta</p>
+
+        
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+	   <div class="form-group text-center"></div>
+
+       <button class="btn btn-raised btn-danger" type="submit" id="submit" >Login</button>
+
+       </div> 
+
+    </form>
+
+
+    {% if messages %}
+    {% for messages in messages %}
+
+ <div class="notification {{.tags}}">
+    {{messages}}
+
+ </div>
+
+ 
+  {% endfor %} 
+  
+  {% endif %}
+  
+    {% endblock %}
+
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+</head>
+<body>
+    <form method="POST">
+
+		{% csrf_token %}
+
+		<td>Nombre {{ form.nombre }}</td>
+		<td>{{ form.apellido }}</td>
+        <td>{{ form.direccion }}</td>
+		<td>{{ form.email }}</td>
+		<td>{{ form.telefono }}</td>
+	   <input type="submit" name="Guardar">
+	   <td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+
+	</form>
+    
+</body>
+</html>
